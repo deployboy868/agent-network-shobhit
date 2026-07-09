@@ -1,18 +1,24 @@
-# Render Blueprint — free tier (sleeps when idle; ~30s wake on first visit)
-# https://render.com → New → Blueprint → connect GitHub repo
+# Render Blueprint — permanent demo URL (free tier; ~30s wake after idle)
+# One-click: https://dashboard.render.com/blueprint/new?repo=https://github.com/deployboy868/agent-network-shobhit
 services:
   - type: web
     name: agent-network-demo
     runtime: docker
     dockerfilePath: ./Dockerfile.cloud
     plan: free
-    healthCheckPath: /
+    healthCheckPath: /_stcore/health
     envVars:
       - key: AGENT_NETWORK_MODE
         value: mock
       - key: LLM_PROVIDER
         value: groq
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
       - key: GROQ_API_KEY
         sync: false
       - key: PYTHONPATH
         value: /app
+      - key: TWIN_MEMORY_DB
+        value: /data/twin-memory.db
+      - key: TWIN_AUDIT_LOG
+        value: /data/twin-audit.jsonl
