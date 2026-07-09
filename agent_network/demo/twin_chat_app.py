@@ -133,7 +133,7 @@ def _ollama_reachable() -> bool:
         from agent_network.config import ollama_base_url
 
         base = ollama_base_url().rstrip("/").removesuffix("/v1")
-        with urlopen(f"{base}/api/tags", timeout=2) as resp:
+        with urlopen(f"{base}/api/tags", timeout=1) as resp:
             return resp.status == 200
     except Exception:
         return False
@@ -287,5 +287,6 @@ def main() -> None:
         st.rerun()
 
 
-# Streamlit always executes this file top-to-bottom; do not guard with __name__.
-main()
+# Streamlit Cloud runs streamlit_app.py; local dev may run this file directly.
+if __name__ == "__main__":
+    main()
