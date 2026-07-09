@@ -1,0 +1,7 @@
+# Extra dependencies for the live Teams + deployment service.
+# Core app (mock/live Jira, twin chat, A2A, Ollama/Grok via OpenAI client) only needs requirements.txt.
+aiohttp>=3.9
+botbuilder-core>=4.15,<5
+botbuilder-schema>=4.15,<5
+msal>=1.28
+openai>=1.0

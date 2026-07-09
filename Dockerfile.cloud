@@ -1,0 +1,33 @@
+# Cloud host (Render/Fly): Streamlit demo only — no Teams bot.
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONPATH=/app \
+    PORT=8501 \
+    TWIN_MEMORY_DB=/data/twin-memory.db \
+    TWIN_AUDIT_LOG=/data/twin-audit.jsonl \
+    AGENT_NETWORK_MODE=mock
+
+WORKDIR /app
+
+COPY requirements-docker.txt ./
+RUN pip install --no-cache-dir -r requirements-docker.txt
+
+COPY agent_network ./agent_network
+COPY streamlit_app.py ./streamlit_app.py
+COPY .streamlit ./.streamlit
+
+RUN mkdir -p /data \
+    && useradd --create-home --uid 1000 appuser \
+    && chown -R appuser:appuser /app /data
+
+USER appuser
+
+EXPOSE 8501
+
+CMD streamlit run streamlit_app.py \
+  --server.port=${PORT} \
+  --server.address=0.0.0.0 \
+  --server.headless=true \
+  --browser.gatherUsageStats=false

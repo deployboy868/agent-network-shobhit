@@ -1,0 +1,27 @@
+﻿Details Required from Managers/Mentors for Project Template
+(To be shared with C&T before the internship starts)
+
+
+* Intern Name:  Shobhit Raj
+* Campus:   IIT Patna 
+* Buddy Name : Harshad Yugraj
+* Mentor Name:  Mayank Kumar  / Prabhpreet
+* Mentor Contact Details:  mayank.kumar1@sprinklr.com / prabhpreet.singh@sprinklr.com 
+* SLT:  Utkarsh
+* Reporting Manager:  Abhinav Mishra
+* Reporting Manager Contact Details: abhinav.mishra@sprinklr.com
+* Team/Department Details: Engineering
+* Title of the Project:  Agent Social Network
+* Pillar (Customer, Team, Financials, Product & Solution): Team Productivity
+* Project Objective & Description:  Build an internal network where each node is a digital twin of a Sprinklr employee. Each agent has skills mapped to MCP tools — Jira, GitLab, Teams, Workday — and serves as the first line of interaction for data extraction, task assignment, and cross-team follow-up. Agent-to-agent interaction eliminates human context-switching for routine coordination.
+* Measuring metrics (Key Deliverables & Outcomes): 
+   * Digital twin agent per employee with skill definitions
+   * MCP integrations: Jira, GitLab, Microsoft Teams, Workday
+   * Agent-to-agent communication protocol
+   * Task assignment and follow-up automation
+   * Demo: agent assigning a ticket to another owner and tracking completion autonomously
+* Prerequisites/Pre-Reads (Include any links/resources that will help the intern prepare better for the project):
+   * MCP specification —modelcontextprotocol.io
+   * LangGraph agent orchestration —langchain-ai.github.io/langgraph
+   * Jira, GitLab, Teams API documentation
+   * Python async programming patterns

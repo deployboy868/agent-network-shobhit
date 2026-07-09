@@ -1,0 +1,18 @@
+services:
+  agent-network:
+    build: .
+    image: agent-network:latest
+    ports:
+      - "3978:3978"
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      TWIN_MEMORY_DB: /data/twin-memory.db
+      TWIN_AUDIT_LOG: /data/twin-audit.jsonl
+    volumes:
+      - twin-data:/data
+    restart: unless-stopped
+
+volumes:
+  twin-data:

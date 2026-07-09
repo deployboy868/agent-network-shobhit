@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "agent-network": {
+      "type": "stdio",
+      "command": "/bin/bash",
+      "args": ["${workspaceFolder}/scripts/run_mcp_server.sh"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  }
+}

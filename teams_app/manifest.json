@@ -1,0 +1,49 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "${MICROSOFT_APP_ID}",
+  "packageName": "com.sprinklr.agentnetwork.twin",
+  "developer": {
+    "name": "Sprinklr Agent Network (Intern)",
+    "websiteUrl": "https://www.sprinklr.com",
+    "privacyUrl": "https://www.sprinklr.com/privacy",
+    "termsOfUseUrl": "https://www.sprinklr.com/terms"
+  },
+  "name": {
+    "short": "Agent Network Twin",
+    "full": "Agent Social Network — Digital Twin (TEST)"
+  },
+  "description": {
+    "short": "Chat with a colleague's digital twin when they're away.",
+    "full": "Each employee has a digital twin that stands in when they are absent. Message a twin to list tickets, check status, link GitLab MRs, and delegate work. The twin acts per the owner's stand-in instructions and notifies them of important activity. TEST build."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#1B1F2A",
+  "bots": [
+    {
+      "botId": "${MICROSOFT_APP_ID}",
+      "scopes": ["personal", "team", "groupchat"],
+      "supportsFiles": false,
+      "isNotificationOnly": false,
+      "commandLists": [
+        {
+          "scopes": ["personal"],
+          "commands": [
+            { "title": "talk to <name>", "description": "Switch to a colleague's twin" },
+            { "title": "list my tickets", "description": "List your Jira tickets" },
+            { "title": "list merge requests", "description": "List GitLab MRs" },
+            { "title": "delegate <task> to assignee", "description": "Delegate work while absent" },
+            { "title": "go absent", "description": "Mark yourself absent (owner only)" },
+            { "title": "instructions: ...", "description": "Tell your twin how to act while away" }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": ["${BOT_DOMAIN}"]
+}

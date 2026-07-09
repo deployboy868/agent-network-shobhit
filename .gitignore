@@ -1,0 +1,13 @@
+.venv/
+.venv-mcp/
+__pycache__/
+*.py[cod]
+.env
+.twin-memory.db
+.twin-standin-policies.json
+.twin-audit.jsonl
+.mcp-server.log
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+.cursor/
